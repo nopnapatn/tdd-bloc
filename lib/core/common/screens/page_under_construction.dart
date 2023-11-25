@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:tdd_bloc/core/common/widgets/gradient_background_widget.dart';
 import 'package:tdd_bloc/core/constants/app_assets.dart';
-import 'package:tdd_bloc/core/constants/app_colors.dart';
 
 class PageUnderConstruction extends StatelessWidget {
   const PageUnderConstruction({super.key});
@@ -9,21 +9,10 @@ class PageUnderConstruction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        constraints: const BoxConstraints.expand(),
-        decoration: const BoxDecoration(
-          color: AppColors.kColorWhite,
-        ),
-        // decoration: const BoxDecoration(
-        //     image: DecorationImage(
-        //   image: AssetImage(AppAssets.kImageExample),
-        //   fit: BoxFit.cover,
-        // )),
-        child: SafeArea(
+        body: GradientBackgroundWidget(
+            image: AppAssets.kImageBackground,
             child: Center(
-          child: Lottie.asset(AppAssets.kLottieUnderConstruction),
-        )),
-      ),
-    );
+              child: Lottie.asset(AppAssets.kLottieUnderConstruction),
+            )));
   }
 }

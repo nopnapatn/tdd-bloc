@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:tdd_bloc/core/constants/app_colors.dart';
+import 'package:tdd_bloc/core/services/injection_container.dart';
 import 'package:tdd_bloc/core/services/routers.dart';
 
 void main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp(
   //   options: DefaultFirebaseOptions.currentPlatform,
   // );
+  await init();
   runApp(const App());
 }
 

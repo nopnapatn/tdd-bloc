@@ -2,10 +2,13 @@ import 'package:equatable/equatable.dart';
 import 'package:tdd_bloc/core/errors/exceptions.dart';
 
 abstract class Failure extends Equatable {
-  const Failure({
+  Failure({
     required this.message,
     required this.statusCode,
-  });
+  }) : assert(
+          statusCode is String || statusCode is int,
+          'StatusCode cannot be a ${statusCode.runtimeType}',
+        );
 
   final String message;
   final dynamic statusCode;
@@ -17,14 +20,14 @@ abstract class Failure extends Equatable {
 }
 
 class CacheFailure extends Failure {
-  const CacheFailure({
+  CacheFailure({
     required super.message,
     required super.statusCode,
   });
 }
 
 class ApiFailure extends Failure {
-  const ApiFailure({
+  ApiFailure({
     required super.message,
     required super.statusCode,
   });
