@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tdd_bloc/core/constants/app_colors.dart';
+import 'package:tdd_bloc/core/constants/app_color.dart';
 import 'package:tdd_bloc/core/extensions/context_extension.dart';
 import 'package:tdd_bloc/src/on_boarding/domain/entities/page_content.dart';
 import 'package:tdd_bloc/src/on_boarding/presentation/cubit/on_boarding_cubit.dart';

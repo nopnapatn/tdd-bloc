@@ -16,6 +16,11 @@ class AppAssets {
   static const kImagePageContentSecond = '$_baseImages/page-content-second.png';
   static const kImagePageContentthrid = '$_baseImages/page-content-thrid.png';
 
+  static const kImageAvatarFirst = '$_baseImages/avatar01.png';
+  static const kImageAvatarSecond = '$_baseImages/avatar02.png';
+  static const kImageAvatarThird = '$_baseImages/avatar03.png';
+  static const kImageAvatarFourth = '$_baseImages/avatar04.png';
+
   // Lotties
   static const kLottieExample = '$_baseLotties/example.json';
   static const kLottieUnderConstruction =

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tdd_bloc/core/common/widgets/gradient_background_widget.dart';
-import 'package:tdd_bloc/core/constants/app_assets.dart';
+import 'package:tdd_bloc/core/constants/app_asset.dart';
 
 class PageUnderConstruction extends StatelessWidget {
   const PageUnderConstruction({super.key});

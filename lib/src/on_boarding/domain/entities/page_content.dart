@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:tdd_bloc/core/constants/app_assets.dart';
+import 'package:tdd_bloc/core/constants/app_asset.dart';
 
 class PageContent extends Equatable {
   const PageContent({
