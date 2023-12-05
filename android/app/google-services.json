@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "525202304605",
+    "project_id": "tdd-bloc",
+    "storage_bucket": "tdd-bloc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525202304605:android:6d811907eb7c8fd8b7e7b4",
+        "android_client_info": {
+          "package_name": "com.example.tdd_bloc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIZvOvyjO9YDRv0cR5vF1KAURVnblIsRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
