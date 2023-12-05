@@ -17,7 +17,7 @@ class AuthLoading extends AuthState {
 class SignedIn extends AuthState {
   const SignedIn(this.user);
 
-  final String user;
+  final LocalUser user;
 
   @override
   List<Object> get props => [user];

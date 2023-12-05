@@ -36,7 +36,7 @@ void main() {
   late FirebaseFirestore cloudStoreClient;
   late FirebaseStorage dbClient;
   late AuthRemoteDataSource dataSource;
-  late UserCredential userCredential;
+  // late UserCredential userCredential;
   late MockUser mockUser;
   late DocumentReference<DataMap> documentReference;
 
@@ -52,7 +52,7 @@ void main() {
       dbClient: dbClient,
     );
     mockUser = MockUser()..uid = documentReference.id;
-    userCredential = MockUserCredential(mockUser);
+    // userCredential = MockUserCredential(mockUser);
     documentReference =
         await cloudStoreClient.collection('users').add(tUser.toMap());
   });
@@ -62,8 +62,8 @@ void main() {
   ).thenReturn(mockUser);
 
   const tEmail = 'Test Email';
-  const tPassword = 'Test Password';
-  const tFullName = 'Test Full Name';
+  // const tPassword = 'Test Password';
+  // const tFullName = 'Test Full Name';
 
   group('forgotPassword', () {
     test('should complete successfully when no [Exception] is thrown',
