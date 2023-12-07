@@ -2,13 +2,13 @@ import 'package:flutter/widgets.dart';
 
 class GradientBackgroundWidget extends StatelessWidget {
   const GradientBackgroundWidget({
-    required this.child,
     required this.image,
+    required this.child,
     super.key,
   });
 
-  final Widget child;
   final String image;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
