@@ -59,6 +59,7 @@ dependencies:
   firebase_storage: ^11.5.3
   firebase_ui_auth: ^1.7.0
   cloud_firestore: ^4.13.3
+  iconly: ^1.0.1
 
 dev_dependencies:
   flutter_test:
