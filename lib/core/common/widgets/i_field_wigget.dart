@@ -37,7 +37,7 @@ class IFieldWidget extends StatelessWidget {
           ? validator
           : (value) {
               if (value == null || value.isEmpty) {
-                return 'This field is requird';
+                return 'This field is require';
               }
               return validator?.call(value);
             },

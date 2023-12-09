@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tdd_bloc/core/common/providers/tab_navigator.dart';
 import 'package:tdd_bloc/core/common/providers/user_provider.dart';
 import 'package:tdd_bloc/src/auth/domain/entities/user.dart';
 
@@ -14,4 +15,8 @@ extension ContextExtension on BuildContext {
 
   UserProvider get userProvider => read<UserProvider>();
   LocalUser? get currentUser => userProvider.user;
+
+  TabNavigator get tabNavigator => read<TabNavigator>();
+  void pop() => tabNavigator.pop();
+  void push(Widget screen) => tabNavigator.push(TabItem(child: screen));
 }
