@@ -51,79 +51,90 @@ class _SignInScreenState extends State<SignInScreen> {
           return GradientBackgroundWidget(
             image: AppAssets.kImageBackground,
             child: SafeArea(
-                child: Center(
-              child: ListView(
-                shrinkWrap: true,
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                children: [
-                  const Text(
-                    'Easy to learn, discover more skills.',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 32,
-                    ),
+                child: ListView(
+              shrinkWrap: true,
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              children: [
+                SizedBox(
+                  height: 200,
+                  width: 200,
+                  child: Image.asset(AppAssets.kImagePageContentthrid),
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Welcome to BLoC!',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 32,
                   ),
-                  const SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        'Sign in to your account',
-                        style: TextStyle(fontSize: 14),
+                ),
+                const Text(
+                  'Easy to learn, discover more skills.',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 24,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                SignInFormWidget(
+                  formKey: formKey,
+                  emailController: emailController,
+                  passwordController: passwordController,
+                ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/forgot-password');
+                    },
+                    child: const Text('Forgot Password'),
+                  ),
+                ),
+                const SizedBox(height: 30),
+                if (state is AuthLoading)
+                  const Center(
+                      child: CircularProgressIndicator(
+                    color: AppColors.kColorGray,
+                  ))
+                else
+                  RoundedButtonWidget(
+                    label: 'Sign In',
+                    onPressed: () {
+                      FocusManager.instance.primaryFocus?.unfocus();
+                      FirebaseAuth.instance.currentUser?.reload();
+                      if (formKey.currentState!.validate()) {
+                        context.read<AuthBloc>().add(SignInEvent(
+                              email: emailController.text.trim(),
+                              password: passwordController.text.trim(),
+                            ));
+                      }
+                    },
+                  ),
+                const SizedBox(height: 25),
+                Divider(
+                  color: AppColors.kColorGray.withOpacity(.5),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Sign in to your account',
+                      style: TextStyle(fontSize: 14),
+                    ),
+                    Align(
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(
+                            context,
+                            SignUpScreen.route,
+                          );
+                        },
+                        child: const Text('Register account?'),
                       ),
-                      Baseline(
-                        baseline: 100,
-                        baselineType: TextBaseline.alphabetic,
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.pushReplacementNamed(
-                              context,
-                              SignUpScreen.route,
-                            );
-                          },
-                          child: const Text('Register account?'),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  SignInFormWidget(
-                    formKey: formKey,
-                    emailController: emailController,
-                    passwordController: passwordController,
-                  ),
-                  const SizedBox(height: 20),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/forgot-password');
-                      },
-                      child: const Text('Forgot Password'),
                     ),
-                  ),
-                  const SizedBox(height: 30),
-                  if (state is AuthLoading)
-                    const Center(
-                        child: CircularProgressIndicator(
-                      color: AppColors.kColorGray,
-                    ))
-                  else
-                    RoundedButtonWidget(
-                      label: 'Sign In',
-                      onPressed: () {
-                        FocusManager.instance.primaryFocus?.unfocus();
-                        FirebaseAuth.instance.currentUser?.reload();
-                        if (formKey.currentState!.validate()) {
-                          context.read<AuthBloc>().add(SignInEvent(
-                                email: emailController.text.trim(),
-                                password: passwordController.text.trim(),
-                              ));
-                        }
-                      },
-                    ),
-                ],
-              ),
+                  ],
+                ),
+              ],
             )),
           );
         },

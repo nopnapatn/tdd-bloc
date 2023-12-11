@@ -28,26 +28,58 @@ class _SignInFormState extends State<SignInFormWidget> {
       key: widget.formKey,
       child: Column(
         children: [
-          IFieldWidget(
-            controller: widget.emailController,
-            hintText: 'Email',
-            keyboardType: TextInputType.emailAddress,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Text(
+                  'Email',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              IFieldWidget(
+                controller: widget.emailController,
+                hintText: 'Email',
+                keyboardType: TextInputType.emailAddress,
+              ),
+            ],
           ),
           const SizedBox(height: 25),
-          IFieldWidget(
-            controller: widget.passwordController,
-            hintText: 'Password',
-            obscureText: obscurePassword,
-            keyboardType: TextInputType.visiblePassword,
-            suffixIcon: IconButton(
-              onPressed: () => setState(() {
-                obscurePassword = !obscurePassword;
-              }),
-              icon: Icon(
-                obscurePassword ? IconlyLight.show : IconlyLight.hide,
-                color: AppColors.kColorGray,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Text(
+                  'Password',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
+                ),
               ),
-            ),
+              const SizedBox(height: 10),
+              IFieldWidget(
+                controller: widget.passwordController,
+                hintText: 'Password',
+                obscureText: obscurePassword,
+                keyboardType: TextInputType.visiblePassword,
+                suffixIcon: IconButton(
+                  onPressed: () => setState(() {
+                    obscurePassword = !obscurePassword;
+                  }),
+                  icon: Icon(
+                    obscurePassword ? IconlyLight.show : IconlyLight.hide,
+                    color: AppColors.kColorGray,
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),

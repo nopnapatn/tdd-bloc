@@ -63,29 +63,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
               shrinkWrap: true,
               padding: const EdgeInsets.symmetric(horizontal: 20),
               children: [
+                SizedBox(
+                  height: 100,
+                  child: Image.asset(AppAssets.kImagePageContentSecond),
+                ),
+                const SizedBox(height: 20),
                 const Text(
-                  'Easy to learn, discover more skills.',
+                  'Welcome to BLoC!',
                   style: TextStyle(
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.bold,
                     fontSize: 32,
                   ),
                 ),
-                const SizedBox(height: 10),
                 const Text(
-                  'Sign up to your account',
-                  style: TextStyle(fontSize: 14),
-                ),
-                const SizedBox(height: 10),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(
-                        context,
-                        SignInScreen.route,
-                      );
-                    },
-                    child: const Text('Already have an account?'),
+                  "Let's join with me!",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 24,
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -96,7 +90,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   confirmPasswordController: confirmPasswordController,
                   fullNameController: fullNameController,
                 ),
-                const SizedBox(height: 20),
                 const SizedBox(height: 30),
                 if (state is AuthLoading)
                   const Center(
@@ -118,6 +111,30 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       }
                     },
                   ),
+                const SizedBox(height: 25),
+                Divider(
+                  color: AppColors.kColorGray.withOpacity(.5),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Sign up to your account',
+                      style: TextStyle(fontSize: 14),
+                    ),
+                    Align(
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(
+                            context,
+                            SignInScreen.route,
+                          );
+                        },
+                        child: const Text('Already have an account?'),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           )),

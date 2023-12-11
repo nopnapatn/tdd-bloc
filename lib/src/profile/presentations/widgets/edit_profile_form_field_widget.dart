@@ -36,7 +36,7 @@ class EditProfileFormFieldWidget extends StatelessWidget {
           hintText: hitText,
           readOnly: readOnly,
         ),
-        const SizedBox(height: 30),
+        const SizedBox(height: 10),
       ],
     );
   }
