@@ -6,7 +6,7 @@ import 'package:tdd_bloc/core/constants/app_color.dart';
 import 'package:tdd_bloc/core/services/injection_container.dart';
 import 'package:tdd_bloc/core/services/routers.dart';
 import 'package:tdd_bloc/firebase_options.dart';
-import 'package:tdd_bloc/src/dashboard/providers/dashboard_controller.dart';
+import 'package:tdd_bloc/src/dashboard/presentation/providers/dashboard_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

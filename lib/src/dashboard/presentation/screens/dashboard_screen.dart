@@ -5,8 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:tdd_bloc/core/common/providers/user_provider.dart';
 import 'package:tdd_bloc/core/constants/app_color.dart';
 import 'package:tdd_bloc/src/auth/data/models/user_model.dart';
-import 'package:tdd_bloc/src/dashboard/providers/dashboard_controller.dart';
-import 'package:tdd_bloc/src/dashboard/utils/dashboard_util.dart';
+import 'package:tdd_bloc/src/dashboard/presentation/providers/dashboard_controller.dart';
+import 'package:tdd_bloc/src/dashboard/presentation/utils/dashboard_util.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});

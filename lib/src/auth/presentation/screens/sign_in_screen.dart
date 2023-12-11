@@ -104,7 +104,10 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   const SizedBox(height: 30),
                   if (state is AuthLoading)
-                    const Center(child: CircularProgressIndicator())
+                    const Center(
+                        child: CircularProgressIndicator(
+                      color: AppColors.kColorGray,
+                    ))
                   else
                     RoundedButtonWidget(
                       label: 'Sign In',

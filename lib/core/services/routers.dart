@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tdd_bloc/core/common/screens/page_under_construction.dart';
-import 'package:tdd_bloc/core/extensions/context_extension.dart';
+import 'package:tdd_bloc/core/extensions/context_extensions.dart';
 import 'package:tdd_bloc/core/services/injection_container.dart';
 import 'package:tdd_bloc/src/auth/data/models/user_model.dart';
 import 'package:tdd_bloc/src/auth/presentation/bloc/auth_bloc.dart';
