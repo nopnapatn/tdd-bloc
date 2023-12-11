@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tdd_bloc/core/extensions/context_extension.dart';
+import 'package:tdd_bloc/core/extensions/context_extensions.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -11,7 +11,7 @@ class SplashScreen extends StatelessWidget {
       child: Center(
           child: CircularProgressIndicator(
         valueColor: AlwaysStoppedAnimation<Color>(
-          context.theme.colorScheme.secondary,
+          context.theme.colorScheme.onPrimary,
         ),
       )),
     );

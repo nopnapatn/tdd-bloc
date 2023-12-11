@@ -33,57 +33,123 @@ class _SignInFormState extends State<SignUpFormWidget> {
       key: widget.formKey,
       child: Column(
         children: [
-          IFieldWidget(
-            controller: widget.fullNameController,
-            hintText: 'Full Name',
-            keyboardType: TextInputType.name,
-          ),
-          const SizedBox(height: 25),
-          IFieldWidget(
-            controller: widget.emailController,
-            hintText: 'Email',
-            keyboardType: TextInputType.emailAddress,
-          ),
-          const SizedBox(height: 25),
-          IFieldWidget(
-            controller: widget.passwordController,
-            hintText: 'Password',
-            obscureText: obscurePassword,
-            keyboardType: TextInputType.visiblePassword,
-            suffixIcon: IconButton(
-              onPressed: () => setState(() {
-                obscurePassword = !obscurePassword;
-              }),
-              icon: Icon(
-                obscurePassword ? IconlyLight.show : IconlyLight.hide,
-                color: AppColors.kColorGray,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Text(
+                  'Name',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
+                ),
               ),
-            ),
+              const SizedBox(height: 10),
+              IFieldWidget(
+                controller: widget.fullNameController,
+                hintText: 'Name',
+                keyboardType: TextInputType.name,
+              ),
+            ],
           ),
           const SizedBox(height: 25),
-          IFieldWidget(
-            controller: widget.confirmPasswordController,
-            hintText: 'Confirm Password',
-            obscureText: obscureConfirmPassword,
-            keyboardType: TextInputType.visiblePassword,
-            suffixIcon: IconButton(
-              onPressed: () {
-                setState(() {
-                  obscureConfirmPassword = !obscureConfirmPassword;
-                });
-              },
-              icon: Icon(
-                obscureConfirmPassword ? IconlyLight.show : IconlyLight.hide,
-                color: AppColors.kColorGray,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Text(
+                  'Email',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
+                ),
               ),
-            ),
-            overrideValidator: true,
-            validator: (value) {
-              if (value != widget.confirmPasswordController.text) {
-                return 'Passwords do not match';
-              }
-              return null;
-            },
+              const SizedBox(height: 10),
+              IFieldWidget(
+                controller: widget.emailController,
+                hintText: 'Email',
+                keyboardType: TextInputType.emailAddress,
+              ),
+            ],
+          ),
+          const SizedBox(height: 25),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Text(
+                  'Password',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              IFieldWidget(
+                controller: widget.passwordController,
+                hintText: 'Password',
+                obscureText: obscurePassword,
+                keyboardType: TextInputType.visiblePassword,
+                suffixIcon: IconButton(
+                  onPressed: () => setState(() {
+                    obscurePassword = !obscurePassword;
+                  }),
+                  icon: Icon(
+                    obscurePassword ? IconlyLight.show : IconlyLight.hide,
+                    color: AppColors.kColorGray,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 25),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Text(
+                  'Confirm Password',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              IFieldWidget(
+                controller: widget.confirmPasswordController,
+                hintText: 'Confirm Password',
+                obscureText: obscureConfirmPassword,
+                keyboardType: TextInputType.visiblePassword,
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      obscureConfirmPassword = !obscureConfirmPassword;
+                    });
+                  },
+                  icon: Icon(
+                    obscureConfirmPassword
+                        ? IconlyLight.show
+                        : IconlyLight.hide,
+                    color: AppColors.kColorGray,
+                  ),
+                ),
+                overrideValidator: true,
+                validator: (value) {
+                  if (value != widget.confirmPasswordController.text) {
+                    return 'Passwords do not match';
+                  }
+                  return null;
+                },
+              ),
+            ],
           ),
         ],
       ),

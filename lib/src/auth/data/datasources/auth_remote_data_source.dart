@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tdd_bloc/core/constants/app_asset.dart';
+import 'package:tdd_bloc/core/constants/util.dart';
 import 'package:tdd_bloc/core/enums/update_user.dart';
 import 'package:tdd_bloc/core/errors/exceptions.dart';
 import 'package:tdd_bloc/core/utils/typedefs.dart';
@@ -120,7 +120,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         password: password,
       );
       await userCred.user?.updateDisplayName(fullName);
-      await userCred.user?.updatePhotoURL(AppAssets.kImageAvatarFirst);
+      await userCred.user?.updatePhotoURL(kDefaultAvatar);
       await _setUserData(_authClient.currentUser!, email);
     } on FirebaseAuthException catch (e) {
       throw ApiException(

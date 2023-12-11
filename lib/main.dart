@@ -6,12 +6,14 @@ import 'package:tdd_bloc/core/constants/app_color.dart';
 import 'package:tdd_bloc/core/services/injection_container.dart';
 import 'package:tdd_bloc/core/services/routers.dart';
 import 'package:tdd_bloc/firebase_options.dart';
+import 'package:tdd_bloc/src/dashboard/presentation/providers/dashboard_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  // FirebaseUIAuth.configureProviders([EmailAuthProvider()]);
   await init();
   runApp(const App());
 }
@@ -21,8 +23,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => UserProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => UserProvider()),
+        ChangeNotifierProvider(create: (_) => DashboardController()),
+      ],
       child: MaterialApp(
         title: 'BLoC',
         theme: ThemeData(
